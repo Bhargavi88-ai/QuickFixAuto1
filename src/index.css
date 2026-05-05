@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #0A192F;
+  --color-orange: #FF6B00;
+  --color-blue-gray: #1E2D4A;
+  --color-text-muted: #94A3B8;
+  
+  --font-sans: "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Helvetica Neue", Arial, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-navy text-white font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+.service-card {
+  @apply bg-blue-gray rounded-xl p-5 border border-white/5 transition-all;
+}
+
+.booking-panel {
+  @apply bg-white dark:bg-blue-gray rounded-[20px] p-8 text-navy dark:text-white shadow-[0_20px_40px_rgba(0,0,0,0.3)] flex flex-col gap-5;
+}
+
+.btn-primary {
+  @apply bg-orange text-white py-4 px-6 rounded-xl font-bold uppercase tracking-wider hover:opacity-90 active:scale-95 transition-all;
+}
+
+/* Base input styling for consistency and accessibility */
+@layer components {
+  .input-standard {
+    @apply w-full bg-slate-50 dark:bg-navy border border-slate-100 dark:border-white/10 py-4 px-11 rounded-xl text-xs font-bold text-navy dark:text-white outline-none transition-all;
+    @apply focus:border-orange dark:focus:border-orange focus:ring-2 focus:ring-orange/20 dark:focus:ring-orange/40 shadow-sm;
+  }
+  
+  .input-standard-no-icon {
+    @apply w-full bg-slate-50 dark:bg-navy border border-slate-100 dark:border-white/10 py-4 px-5 rounded-xl text-xs font-bold text-navy dark:text-white outline-none transition-all;
+    @apply focus:border-orange dark:focus:border-orange focus:ring-2 focus:ring-orange/20 dark:focus:ring-orange/40 shadow-sm;
+  }
+}
+
+/* Autofill safety to prevent invisible text in dark mode */
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:hover {
+  -webkit-text-fill-color: inherit;
+  -webkit-box-shadow: 0 0 0 30px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.bg-grid-pattern {
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+  background-size: 24px 24px;
+}

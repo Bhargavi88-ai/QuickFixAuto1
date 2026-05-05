@@ -1,0 +1,68 @@
+import { Droplets, RotateCcw, ShieldAlert, Battery, Cpu, Wind, Target, Eye } from 'lucide-react';
+
+export const SERVICES = [
+  {
+    id: 'oil-change',
+    name: 'Oil & Filter Change',
+    description: 'Complete synthesis oil replacement and filter change to keep your engine running smoothly.',
+    duration: 30,
+    price: 69.99,
+    icon: Droplets,
+  },
+  {
+    id: 'tire-rotation',
+    name: 'Tire Rotation & Balance',
+    description: 'Extend the life of your tires with professional rotation and high-precision balancing.',
+    duration: 60,
+    price: 49.99,
+    icon: RotateCcw,
+  },
+  {
+    id: 'brake-service',
+    name: 'Brake Inspection & Fix',
+    description: 'Comprehensive brake system check and pad replacement for your safety.',
+    duration: 90,
+    price: 159.99,
+    icon: ShieldAlert,
+  },
+  {
+    id: 'battery-check',
+    name: 'Battery Replacement',
+    description: 'Testing and high-quality battery installation with state-of-charge verification.',
+    duration: 30,
+    price: 129.99,
+    icon: Battery,
+  },
+  {
+    id: 'diagnostics',
+    name: 'Engine Diagnostics',
+    description: 'Advanced computer scanning to identify performance issues and sensor errors.',
+    duration: 60,
+    price: 89.99,
+    icon: Cpu,
+  },
+  {
+    id: 'ac-service',
+    name: 'AC Recharge & Service',
+    description: 'Keep your cabin cool with full refrigerant recharge and leak inspection.',
+    duration: 90,
+    price: 119.99,
+    icon: Wind,
+  },
+  {
+    id: 'alignment',
+    name: 'Wheel Alignment',
+    description: 'Precision alignment for improved handling and reduced tire wear.',
+    duration: 60,
+    price: 99.99,
+    icon: Target,
+  },
+  {
+    id: 'inspection',
+    name: 'Vehicle Inspection',
+    description: '120-point digital inspection covering all major safety and performance points.',
+    duration: 90,
+    price: 79.99,
+    icon: Eye,
+  },
+];

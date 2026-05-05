@@ -1,0 +1,113 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Customer profile details",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "fullName": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "isAdmin": { "type": "boolean" }
+      },
+      "required": ["uid", "fullName", "email", "updatedAt"]
+    },
+    "Service": {
+      "title": "Service",
+      "description": "Available car maintenance services",
+      "type": "object",
+      "properties": {
+        "serviceId": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "duration": { "type": "integer", "enum": [30, 60, 90] },
+        "price": { "type": "number" },
+        "isActive": { "type": "boolean" },
+        "icon": { "type": "string" }
+      },
+      "required": ["serviceId", "name", "duration", "price", "isActive"]
+    },
+    "Booking": {
+      "title": "Booking",
+      "description": "Appointment records",
+      "type": "object",
+      "properties": {
+        "bookingId": { "type": "string" },
+        "userId": { "type": "string" },
+        "serviceId": { "type": "string" },
+        "date": { "type": "string" },
+        "timeSlot": { "type": "string" },
+        "duration": { "type": "integer" },
+        "status": { "type": "string", "enum": ["pending", "confirmed", "cancelled", "completed"] },
+        "customerDetails": {
+          "type": "object",
+          "properties": {
+            "fullName": { "type": "string" },
+            "email": { "type": "string" },
+            "phone": { "type": "string" }
+          }
+        },
+        "carDetails": {
+          "type": "object",
+          "properties": {
+            "make": { "type": "string" },
+            "model": { "type": "string" },
+            "year": { "type": "integer" },
+            "licensePlate": { "type": "string" },
+            "mileage": { "type": "number" }
+          }
+        },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "notes": { "type": "string" }
+      },
+      "required": ["bookingId", "userId", "serviceId", "date", "timeSlot", "status"]
+    },
+    "Car": {
+      "title": "Car",
+      "description": "Vehicle details linked to user",
+      "type": "object",
+      "properties": {
+        "make": { "type": "string" },
+        "model": { "type": "string" },
+        "year": { "type": "integer" },
+        "licensePlate": { "type": "string" },
+        "mileage": { "type": "number" },
+        "addedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "AvailabilitySlot": {
+      "title": "AvailabilitySlot",
+      "description": "Slot booking status",
+      "type": "object",
+      "properties": {
+        "slotId": { "type": "string" },
+        "date": { "type": "string" },
+        "timeSlot": { "type": "string" },
+        "duration": { "type": "integer" },
+        "isBooked": { "type": "boolean" },
+        "serviceId": { "type": "string" }
+      },
+      "required": ["slotId", "date", "timeSlot", "isBooked"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "User profiles"
+    },
+    "services/{serviceId}": {
+      "schema": "Service",
+      "description": "Maintenance services"
+    },
+    "bookings/{bookingId}": {
+      "schema": "Booking",
+      "description": "Appointment bookings"
+    },
+    "availability_slots/{slotId}": {
+      "schema": "AvailabilitySlot",
+      "description": "Inventory of time slots"
+    }
+  }
+}
